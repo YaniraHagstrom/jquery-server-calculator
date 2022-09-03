@@ -2,37 +2,51 @@ $(document).ready(makeReady);
 
 function makeReady(){
     // console.log('all set');
-    $('#equalsButton').on('click', getTotal)
+    $('#equalsButton').on('click', requestTotal)
+}
+
+function fetchTotal(){
+    $.ajax({
+        method: 'GET',
+        url: '/calculate'
+    }).then((calculations) => {
+        // for (let calc of calculations){
+        // $('#calculations').append(``)
+        // }
+        console.log('received total')
+    })
+
 }
 
 
 
-
-
-function getTotal(){
-    
-    let equation = [];
+function requestTotal(){
+    let equation;
 
     // Get input values 
-    let firstNum = $('#firstNum').val();
-    equation.push(firstNum);
+    let firstNum = Number($('#firstNum').val());
+    let secondNum = Number($('#secondNum').val());
 
     // get operator selected
     let operator = $('#operatorOptions option:selected').text();
-    equation.push(operator);
     
-    let secondNum = $('#secondNum').val();
-    equation.push(secondNum);
+
+    equation = {
+        firstNum: firstNum,
+        operator: operator,
+        secondNum: secondNum
+    }
 
     // send POST request to server
     $.ajax({
         method: 'POST',
         url: '/calculate', 
         data: equation
+    }).then((response) => {
+        // console.log(response);
     })
+    fetchTotal();
 
-
-    console.log(equation);
 
     //* need to reset dropdown once button is clicked
     //* add 'equation' to DOM

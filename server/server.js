@@ -22,27 +22,55 @@ app.listen(PORT, () => {
 // ******** Body Parser ************
 // Import body-parser:
 const bodyParser = require('body-parser');
+const e = require('express');
 
 // Teach our server how to read JSON:
 app.use(bodyParser.urlencoded({ extended: true }));
 //////////////////////////////////////////////////
 
+
+let equation;
+calcArray=[];
+let total;
+
 app.post('/calculate', (req, res) => {
-    console.log('Post Received');
+    // console.log('Post Received');
+    equation = req.body;
+    calcArray.push(equation);
+    res.sendStatus(201);
 })
 
-//* 1b. Receive the array and perform the calculation.
-    //* use .eval()?
-    //* example ['1', '+', '2']
-    //** ex {
-    // firstNum: '1',
-    // operator: '+',
-    // secondNum: '2'
-    // }*/ 
+app.get('/calculate', (req, res) => {
+    calcTotal();
+    // console.log(total);
+    res.send(calcArray);
+    console.log(equation);
+})
 
-calcArray=[];
 
-function totalCalculation(){
-    //* append object to the object array that I still need to make. 
-    calcArray.push();
+// {firstNum: '1', operator: '+', secondNum: '3'}
+function calcTotal() {
+    let operator = equation.operator;
+    switch (operator) {
+        case '+':
+            total = Number(equation.firstNum)+ Number(equation.secondNum);
+            break;
+
+        case '-':
+            total = Number(equation.firstNum)- Number(equation.secondNum);
+            break;
+
+        case '*':
+            total = Number(equation.firstNum)* Number(equation.secondNum);
+            break;
+
+        case '/':
+            total = Number(equation.firstNum)/ Number(equation.secondNum);
+        default:
+            console.log('something went wrong');
+    }
+    equation.total = total
+    console.log(total);
+    console.log(equation);
 }
+
