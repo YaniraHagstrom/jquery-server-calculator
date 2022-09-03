@@ -12,7 +12,7 @@ function makeReady(){
 function getTotal(){
     
     let equation = [];
-    
+
     // Get input values 
     let firstNum = $('#firstNum').val();
     equation.push(firstNum);
@@ -27,7 +27,7 @@ function getTotal(){
     // send POST request to server
     $.ajax({
         method: 'POST',
-        url: '/equation', 
+        url: '/calculate', 
         data: equation
     })
 

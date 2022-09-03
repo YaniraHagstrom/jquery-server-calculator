@@ -1,7 +1,7 @@
 // bring express into your project
 // you will need to `npm init` and `npm install express` first
 
-
+// ******** Server Stuff *********
 // create your express app
 const express = require('express');
 const app = express();
@@ -17,15 +17,18 @@ app.use(express.static('server/public'));
 app.listen(PORT, () => {
     console.log(`hey. listen. http://localhost:${PORT}`)
 })
+/////////////////////////////////////////////////
 
+// ******** Body Parser ************
 // Import body-parser:
 const bodyParser = require('body-parser');
 
 // Teach our server how to read JSON:
 app.use(bodyParser.urlencoded({ extended: true }));
+//////////////////////////////////////////////////
 
-app.post('/equation', (req, res) => {
-    console.log(req.body);
+app.post('/calculate', (req, res) => {
+    console.log('Post Received');
 })
 
 //* 1b. Receive the array and perform the calculation.
