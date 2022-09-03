@@ -10,10 +10,13 @@ function fetchTotal(){
         method: 'GET',
         url: '/calculate'
     }).then((calculations) => {
-        // for (let calc of calculations){
-        // $('#calculations').append(``)
-        // }
-        console.log('received total')
+        for (let calc of calculations){
+            firstNum = calc.firstNum;
+            secondNum = calc.secondNum;
+            operator = calc.operator;
+            $('#calculations').append(`<li>${firstNum} ${operator} ${secondNum}</li>`)
+            }
+            console.log(calculations);
     })
 
 }
