@@ -19,7 +19,7 @@ function fetchTotal(){
             let total = calc.total;
             $('#calculations').append(`<li>${firstNumber} ${op} ${secondNumber} = ${total}</li>`)
             }
-            console.log(calculations);
+            // console.log(calculations);
     })
 
 }
@@ -30,30 +30,34 @@ function requestTotal(){
     let equation;
 
     // Get input values 
-    let firstNum = Number($('#firstNum').val());
-    let secondNum = Number($('#secondNum').val());
+    let firstNum = $('#firstNum').val();
+    let secondNum = $('#secondNum').val();
 
     // get operator selected
     let operator = $('#operatorOptions option:selected').text();
-    
-    
-    equation = {
-        firstNum: firstNum,
-        operator: operator,
-        secondNum: secondNum
-    }
-    
-    // send POST request to server
-    $.ajax({
-        method: 'POST',
-        url: '/calculate', 
-        data: equation
-    }).then((response) => {
-        // console.log(response);
-    })
 
-    
-    fetchTotal();
+    if (operator === 'Choose Operator'){
+        alert('Please choose an operator')
+    }
+    else{
+        equation = {
+            firstNum: firstNum,
+            operator: operator,
+            secondNum: secondNum
+        }
+        
+        // send POST request to server
+        $.ajax({
+            method: 'POST',
+            url: '/calculate', 
+            data: equation
+        }).then((response) => {
+            // console.log(response);
+        })
+
+        
+        fetchTotal();
+    }
 }
 
 function clearInputs(){

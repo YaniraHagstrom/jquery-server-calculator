@@ -43,7 +43,7 @@ app.post('/calculate', (req, res) => {
 app.get('/calculate', (req, res) => {
     calcTotal();
     res.send(calcArray);
-    console.log(equation);
+    // console.log(equation);
 })
 
 // example of data received from client:
@@ -70,7 +70,7 @@ function calcTotal() {
     }
     // add key value pair to the object:
     equation.total = total
-    console.log(total);
-    console.log(equation);
+//     console.log(total);
+//     console.log(equation);
 }
 
