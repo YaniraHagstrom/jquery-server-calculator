@@ -2,19 +2,22 @@ $(document).ready(makeReady);
 
 function makeReady(){
     // console.log('all set');
-    $('#equalsButton').on('click', requestTotal)
+    $('#equalsButton').on('click', requestTotal);
+    $('#clearButton').on('click', clearInputs);
 }
 
 function fetchTotal(){
+    $('#calculations').empty();
     $.ajax({
         method: 'GET',
         url: '/calculate'
     }).then((calculations) => {
         for (let calc of calculations){
-            firstNum = calc.firstNum;
-            secondNum = calc.secondNum;
-            operator = calc.operator;
-            $('#calculations').append(`<li>${firstNum} ${operator} ${secondNum}</li>`)
+            let firstNumber = calc.firstNum;
+            let secondNumber = calc.secondNum;
+            let op = calc.operator;
+            let total = calc.total;
+            $('#calculations').append(`<li>${firstNumber} ${op} ${secondNumber} = ${total}</li>`)
             }
             console.log(calculations);
     })
@@ -33,13 +36,13 @@ function requestTotal(){
     // get operator selected
     let operator = $('#operatorOptions option:selected').text();
     
-
+    
     equation = {
         firstNum: firstNum,
         operator: operator,
         secondNum: secondNum
     }
-
+    
     // send POST request to server
     $.ajax({
         method: 'POST',
@@ -48,11 +51,14 @@ function requestTotal(){
     }).then((response) => {
         // console.log(response);
     })
+
+    // Reset the drop down
+    $('#operatorOptions').val('0');
+    
     fetchTotal();
-
-
-    //* need to reset dropdown once button is clicked
-    //* add 'equation' to DOM
 }
 
-//* 1a. Click submit Button and send a string with the two inputs and an operator to the server.
+function clearInputs(){
+    
+    
+}

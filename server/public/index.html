@@ -12,17 +12,17 @@
 <body>
     <h1>Server Side Calculator</h1>
     <section>
-        <input type="number" id="firstNum" placeholder="Number">
+        <input type="number" id="firstNum" placeholder="Number 1">
         <select id = "operatorOptions">  
-            <option> ---Choose Operand--- </option>  
-            <option id="add">+</option>  
+            <option value="0" id="chooseOp">---Choose Operator---</option>  
+            <option  id="add">+</option>  
             <option id="subtract">-</option>  
             <option id="multiply">*</option>  
             <option id="divide">/</option>  
         </select>  
-        <input type="number" id="secondNum" placeholder="Number">
+        <input type="number" id="secondNum" placeholder="Number 2">
         <button id="equalsButton">=</button>
-        <button>C</button>
+        <button id="clearButton">C</button>
     </section>
     <ul id="calculations">
         

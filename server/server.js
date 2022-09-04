@@ -42,7 +42,6 @@ app.post('/calculate', (req, res) => {
 
 app.get('/calculate', (req, res) => {
     calcTotal();
-    // console.log(total);
     res.send(calcArray);
     console.log(equation);
 })
