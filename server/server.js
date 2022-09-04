@@ -46,7 +46,7 @@ app.get('/calculate', (req, res) => {
     console.log(equation);
 })
 
-
+// example of data received from client:
 // {firstNum: '1', operator: '+', secondNum: '3'}
 function calcTotal() {
     let operator = equation.operator;
@@ -68,6 +68,7 @@ function calcTotal() {
         default:
             console.log('something went wrong');
     }
+    // add key value pair to the object:
     equation.total = total
     console.log(total);
     console.log(equation);
