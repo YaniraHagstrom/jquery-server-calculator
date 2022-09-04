@@ -52,13 +52,13 @@ function requestTotal(){
         // console.log(response);
     })
 
-    // Reset the drop down
-    $('#operatorOptions').val('0');
     
     fetchTotal();
 }
 
 function clearInputs(){
-    
-    
+    $('#firstNum').val('');
+    $('#secondNum').val('');
+    // Reset the drop down
+    $('#operatorOptions').val('0');
 }
