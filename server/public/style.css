@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 5px;
+}
+
+input::placeholder {
+    text-align: center;
+
+}
+
+body {
+    background-color: lightgoldenrodyellow ;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 60px;
+    margin-top: 0;
+}
+
+.parentDiv {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+}
+
+#owlPNG {
+    padding-top: 30px;
+    width: 90%;
+}
+
+#column1 {
+    text-align: center;
+    object-fit: contain;
+    width: 40%;
+}
+
+#column2 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-content: center; */
+    text-align: center;
+    width: 70%;
+}
+
+#operatorOptions {
+    border-radius: 5px;
+}
+
+#inputSection {
+    height: 10%;
+}
+
+#chalkboard {
+    margin-top: 2px;
+    background-color: darkgreen;
+    height: 90%;
+    border: 5px solid #B78240;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type:none;
+}
+
+li {
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 35px;
+    color: white;
+    text-align: left;
+    padding-left: 30px;
+}

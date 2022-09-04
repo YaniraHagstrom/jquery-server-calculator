@@ -10,22 +10,31 @@
     <title>Server Side Calculator</title>
 </head>
 <body>
-    <h1>Server Side Calculator</h1>
-    <section>
-        <input type="number" id="firstNum" placeholder="Number 1">
-        <select id = "operatorOptions">  
-            <option value="0" id="chooseOp">Choose Operator</option>  
-            <option  id="add">+</option>  
-            <option id="subtract">-</option>  
-            <option id="multiply">*</option>  
-            <option id="divide">/</option>  
-        </select>  
-        <input type="number" id="secondNum" placeholder="Number 2">
-        <button id="equalsButton">=</button>
-        <button id="clearButton">C</button>
-    </section>
-    <ul id="calculations">
-        
-    </ul>
+    <h1>Let's Calculate!</h1>
+    <div class="parentDiv">
+        <div id="column1">
+            <img src="owl.png" alt="owl doing math" id="owlPNG">
+        </div>
+        <div id="column2">
+            <div id="inputSection">
+                <input class="inputRow" type="number" id="firstNum" placeholder="Number 1">
+                <select id = "operatorOptions">  
+                    <option value="0" id="chooseOp">Choose Operator</option>  
+                    <option  id="add">+</option>  
+                    <option id="subtract">-</option>  
+                    <option id="multiply">*</option>  
+                    <option id="divide">/</option>  
+                </select>  
+                <input type="number" id="secondNum" placeholder="Number 2">
+                <button id="equalsButton">=</button>
+                <button id="clearButton">C</button>
+            </div>
+            <div id="chalkboard">
+                <ul id="calculations">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
